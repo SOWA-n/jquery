@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullPage.js Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <style>
+        /* Optional: Basic styling for demonstration */
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            overflow: hidden; /* FullPage.js নিজস্ব স্ক্রোলিং হ্যান্ডেল করে */
+        }
+
+        .section {
+            text-align: center;
+            font-size: 3em;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* প্রতিটি সেকশনের জন্য আলাদা ব্যাকগ্রাউন্ড রঙ */
+        #section1 { background-color: #1abc9c; } /* Emerald */
+        #section2 { background-color: #3498db; } /* Peter River */
+        #section3 { background-color: #9b59b6; } /* Amethyst */
+        #section4 { background-color: #e74c3c; } /* Alizarin */
+
+        /* নেভিগেশন স্টাইল (FullPage.js CSS দ্বারা প্রদান করা হয়, চাইলে কাস্টমাইজ করতে পারেন) */
+        #fp-nav span {
+            border-color: white !important;
+        }
+        #fp-nav li .active span {
+            background-color: white !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="fullpage">
+        <div class="section" id="section1">Section 1</div>
+        <div class="section" id="section2">সেকশন ২</div>
+        <div class="section" id="section3">সেকশন ৩</div>
+        <div class="section" id="section4">সেকশন ৪</div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // FullPage.js ইনিশিয়ালাইজ করা
+            $('#fullpage').fullpage({
+                // অপশনগুলো এখানে কনফিগার করুন
+                sectionsColor: ['#1abc9c', '#3498db', '#9b59b6', '#e74c3c'], // সেকশনের ব্যাকগ্রাউন্ড রঙ
+                navigation: true, // ডানপাশে নেভিগেশন ডট দেখান
+                navigationPosition: 'right', // নেভিগেশন ডটের অবস্থান
+                navigationTooltips: ['সেকশন ১', 'সেকশন ২', 'সেকশন ৩', 'সেকশন ৪'], // নেভিগেশন ডটের টুলটিপ টেক্সট
+                showActiveTooltip: true, // সক্রিয় নেভিগেশন ডটের টুলটিপ সবসময় দেখান
+                scrollingSpeed: 700, // স্ক্রোল করার গতি (মিলিসেকেন্ডে)
+                autoScrolling: true, // স্বয়ংক্রিয় স্ক্রোলিং সক্ষম
+                fitToSection: true, // স্ক্রোল করার পরে সেকশনের সাথে ফিট হবে
+                loopBottom: false, // শেষ সেকশন থেকে আবার প্রথম সেকশনে লুপ হবে কিনা
+                loopTop: false, // প্রথম সেকশন থেকে শেষ সেকশনে লুপ হবে কিনা
+                // accessibility
+                keyboardScrolling: true, // কিবোর্ড ব্যবহার করে স্ক্রোলিং সক্ষম
+                animateAnchor: true, // অ্যাঙ্কর লিঙ্ক ব্যবহার করে অ্যানিমেশন সক্ষম
+                recordHistory: true, // হিস্টোরি রেকর্ড রাখবে (ব্রাউজার ব্যাক/ফরওয়ার্ড বাটন)
+                // sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'], // উদাহরণস্বরূপ আরও কিছু অপশন
+
+                // ইভেন্ট হ্যান্ডলার (ঐচ্ছিক)
+                // afterLoad: function(origin, destination, direction){
+                //     console.log("After load:" + destination.index);
+                // },
+                // onLeave: function(origin, destination, direction){
+                //     console.log("On leave:" + origin.index);
+                // }
+            });
+        });
+    </script>
+
+</body>
+</html>

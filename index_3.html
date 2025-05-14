@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie-Edge">
+    <title></title>
+                <!--font awesome link-->
+    <link rel="stylesheet" href="assets/font_awesome/css/all.min.css">
+                <!--bootstrap css link-->
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.css">
+                <!--custom css link-->
+    
+    <style>
+         #preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+  }
+  #status {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-image: url('path/to/your/loading.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -100px 0 0 -100px;
+  }
+    </style>
+                <!--media query link-->
+    <link rel="stylesheet" href="css/media.css">
+
+</head>
+<body>
+
+<div id="preloader">
+  <div id="status">
+    <img src="image/minimo1.jpg" alt="Loading...">
+    <img src="image/minimo3.jpg" alt="Loading...">
+  </div>
+</div>
+
+
+
+<!--jquery cdn link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+                <!--bootstrap js link-->
+    <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
+                <!--custom js link-->
+    
+   <!-- PreLoader JavaScript -->
+<script type="text/javascript">
+  $(window).on('load', function() {
+    $('#status').fadeOut();
+    $('#preloader').delay(350).fadeOut('slow');
+    $('body').delay(350).css({'overflow': 'visible'});
+  });
+</script>
+
+
+</body>
+</html>

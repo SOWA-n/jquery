@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetAlert2 Example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css">
+    <style>
+        /* Optional: Basic styling for demonstration */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        #basic-alert { background-color: #007bff; }
+        #success-alert { background-color: #28a745; }
+        #error-alert { background-color: #dc3545; }
+        #confirm-alert { background-color: #ffc107; }
+    </style>
+</head>
+<body>
+
+    <h1>SweetAlert2 Use</h1>
+
+    <button id="basic-alert">Basic</button>
+    <button id="success-alert">Successful</button>
+    <button id="error-alert">Error</button>
+    <button id="confirm-alert">Confirmation</button>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            // Basic Alert
+            $('#basic-alert').on('click', function() {
+                Swal.fire('This is an alert!');
+            });
+
+            // Successful Message
+            $('#success-alert').on('click', function() {
+                Swal.fire(
+                    'Succes!',
+                    'Your work have done successfully।',
+                    'success' // 'success', 'error', 'warning', 'info', 'question'
+                );
+            });
+
+            // Error Message
+            $('#error-alert').on('click', function() {
+                Swal.fire(
+                    'Error!',
+                    'Something is wrong।',
+                    'error'
+                );
+            });
+
+            // Confirmation dialogue
+            $('#confirm-alert').on('click', function() {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "This change will not return!",
+                    icon: 'warning',
+                    showCancelButton: true, 
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, Delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            'It has been deleted!',
+                            'Your file has been deleted!',
+                            'success'
+                        );
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>

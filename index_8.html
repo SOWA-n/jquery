@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnific Popup Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <style>
+        /* Optional: Basic styling for demonstration */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .gallery {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery a img {
+            display: block;
+            max-width: 100px;
+            height: auto;
+            border: 2px solid #ddd;
+            padding: 5px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Magnific Popup Use</h1>
+
+    <h2>One Image Popup</h2>
+    <a href="https://via.placeholder.com/600/92c952" class="popup-image" title="Sample Image 1">
+        <img src="image/minimo1.jpg" alt="Sample Image 1">
+    </a>
+
+    <h2>Image Gallery Popup</h2>
+    <div class="gallery">
+        <a href="https://via.placeholder.com/600/771796" title="Sample Image 2">
+            <img src="image/minimo2.jpg" alt="Sample Image 2">
+        </a>
+        <a href="https://via.placeholder.com/600/24f355" title="Sample Image 3">
+            <img src="image/minimo3.jpg" alt="Sample Image 3">
+        </a>
+        <a href="https://via.placeholder.com/600/d32776" title="Sample Image 4">
+            <img src="image/minimo4.jpg" alt="Sample Image 4">
+
+        <a href="https://via.placeholder.com/600/d32776" title="Sample Image 4">
+            <img src="image/minimo5.jpg" alt="Sample Image 5">
+
+        <a href="https://via.placeholder.com/600/d32776" title="Sample Image 4">
+            <img src="image/minimo6.jpg" alt="Sample Image 6">
+        </a>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // For One Image Popup
+            $('.popup-image').magnificPopup({
+                type: 'image',
+                closeOnContentClick: true,
+                mainClass: 'mfp-img-mobile',
+                image: {
+                    verticalFit: true
+                }
+            });
+
+            // For Image Gallery Popup
+            $('.gallery').magnificPopup({
+                delegate: 'a', 
+                type: 'image',
+                tLoading: 'Loading image #%curr%...',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0,1] // Load next and previous image in background
+                },
+                image: {
+                    tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

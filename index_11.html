@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isotope jQuery Plugin Example</title>
+    <style>
+        /* Optional: Basic styling for demonstration */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .filters, .sorts {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 8px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e9e9e9;
+        }
+        button.is-checked {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .grid {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+        }
+        .grid:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .grid-item {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 5px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* Isotope Transitions */
+        .grid-item {
+          transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Isotope jQuery Plugin Use</h1>
+
+    <div class="filters">
+        <button class="button is-checked" data-filter="*">See All</button>
+        <button class="button" data-filter=".metal">Metal</button>
+        <button class="button" data-filter=".transition">Transition</button>
+        <button class="button" data-filter=".alkali">Acid</button>
+    </div>
+
+    <div class="sorts">
+        <button class="button is-checked" data-sort-by="original-order">Default Order</button>
+        <button class="button" data-sort-by="name">Name</button>
+        <button class="button" data-sort-by="symbol">Symbol</button>
+        <button class="button" data-sort-by="number">Number</button>
+    </div>
+
+
+    <div class="grid">
+      <div class="grid-item metal transition" data-category="transition" data-name="Iron" data-symbol="Fe" data-number="26">Fe</div>
+      <div class="grid-item metal" data-category="metal" data-name="Gold" data-symbol="Au" data-number="79">Au</div>
+      <div class="grid-item transition" data-category="transition" data-name="Copper" data-symbol="Cu" data-number="29">Cu</div>
+      <div class="grid-item alkali" data-category="alkali" data-name="Sodium" data-symbol="Na" data-number="11">Na</div>
+      <div class="grid-item metal" data-category="metal" data-name="Silver" data-symbol="Ag" data-number="47">Ag</div>
+      <div class="grid-item alkali" data-category="alkali" data-name="Potassium" data-symbol="K" data-number="19">K</div>
+      <div class="grid-item metal transition" data-category="transition" data-name="Zinc" data-symbol="Zn" data-number="30">Zn</div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Isotope Initialize
+            var $grid = $('.grid').isotope({
+                itemSelector: '.grid-item', 
+                layoutMode: 'fitRows', 
+                getSortData: { 
+                    name: '[data-name]',
+                    symbol: '[data-symbol]',
+                    number: '[data-number] parseInt', 
+                    'original-order': 'original-order' 
+                }
+            });
+
+            // Filter Button Click Event
+            $('.filters').on('click', 'button', function() {
+                var filterValue = $(this).attr('data-filter');
+                $grid.isotope({ filter: filterValue });
+                
+                $('.filters button').removeClass('is-checked');
+                $(this).addClass('is-checked');
+            });
+
+            // Sort Button click Event (optional)
+            $('.sorts').on('click', 'button', function() {
+                var sortByValue = $(this).attr('data-sort-by');
+                $grid.isotope({ sortBy: sortByValue });
+                
+                 $('.sorts button').removeClass('is-checked');
+                 $(this).addClass('is-checked');
+            });
+        });
+    </script>
+
+</body>
+</html>

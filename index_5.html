@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie-Edge">
+    <title></title>
+                <!--bootstrap css link-->
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+            <!--custom css link-->
+    <style>
+
+    </style>
+                
+
+</head>
+<body>
+
+<div class="owl-carousel owl-theme your-custom-slider-class">
+    <div class="item"><h4>Item 1</h4><img src="image/minimo1.jpg" alt="Image 1"></div>
+    <div class="item"><h4>Item 2</h4><img src="image/minimo2.jpg" alt="Image 2"></div>
+    <div class="item"><h4>Item 3</h4><img src="image/minimo3.jpg" alt="Image 3"></div>
+    <div class="item"><h4>Item 4</h4><img src="image/minimo4.jpg" alt="Image 4"></div>
+    <div class="item"><h4>Item 5</h4><img src="image/minimo5.jpg" alt="Image 5"></div>
+    <div class="item"><h4>Item 6</h4><img src="image/minimo6.jpg" alt="Image 6"></div>
+</div>
+
+
+  <!--jquery cdn link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+                <!--bootstrap js link-->
+    <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
+                <!--custom js link-->
+    
+    <script type="text/javascript">
+$(document).ready(function(){
+  $(".owl-carousel").owlCarousel({ // অথবা $('.your-custom-slider-class').owlCarousel();
+    // এখানে Owl Carousel এর অপশনগুলো যোগ করতে পারেন
+    items: 3, // ডিফল্টভাবে একসাথে কয়টি আইটেম দেখাবে (ডেস্কটপের জন্য)
+    loop: true, // ক্যারোসেল কি চক্রাকারে ঘুরবে?
+    margin: 10, // আইটেমগুলোর মধ্যে ফাঁকা জায়গা (px)
+    nav: true, // নেভিগেশন অ্যারো (আগের/পরের বাটন) দেখাবে কিনা
+    dots: true, // ডট নেভিগেশন দেখাবে কিনা
+    autoplay: true, // স্বয়ংক্রিয়ভাবে স্লাইড হবে
+    autoplayTimeout: 3000, // কত সময় পর পর স্লাইড হবে (মিলিসেকেন্ডে)
+    autoplayHoverPause: true, // মাউস হোভার করলে অটো প্লে পজ হবে
+    responsive:{ // বিভিন্ন স্ক্রিন সাইজের জন্য আলাদা সেটিংস
+        0:{ // 0px থেকে বড় স্ক্রিনের জন্য (মোবাইল)
+            items:1,
+            nav:false // মোবাইলে নেভিগেশন অ্যারো না দেখাতে চাইলে
+        },
+        600:{ // 600px থেকে বড় স্ক্রিনের জন্য (ট্যাবলেট)
+            items:2,
+            nav:false
+        },
+        1000:{ // 1000px থেকে বড় স্ক্রিনের জন্য (ডেস্কটপ)
+            items:3,
+            nav:true,
+            loop:true // ডেস্কটপে লুপ চালু রাখতে চাইলে
+        }
+    }
+    
+  });
+});
+</script>
+    
+
+</body>
+</html>

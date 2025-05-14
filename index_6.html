@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie-Edge">
+    <title></title>
+                <!--bootstrap css link-->
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.css">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+                 <!--custom css link-->
+    <style>
+ 
+    </style>
+                
+
+</head>
+<body>
+
+    <h1 id="animatedText"><img src="image/minimo1.jpg"></h1>
+    <button id="animateButton">Animation</button>
+
+    <br><br>
+    <div class="box" style="background-color: green; width: 100px; height: 100px;"></div>
+
+    
+                <!--jquery cdn link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <!--gsap cdn link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+                              <!--bootstrap js link-->
+    <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
+                <!--custom js link-->
+    <script>
+    $(document).ready(function(){
+  $("#animateButton").click(function(){
+    // প্রথমে যদি আগের কোনো অ্যানিমেশন ক্লাস থাকে, সেগুলো মুছে ফেলতে পারেন
+    // $("#animatedText").removeClass(); // এভাবে সব ক্লাস মুছে ফেলা যায়
+
+    // অ্যানিমেশন ক্লাস যোগ করা হচ্ছে
+    // 'animate__animated' ক্লাসটি সবসময় যোগ করতে হবে Animate.css v4 এর জন্য
+    $("#animatedText").addClass('animate__animated animate__bounce');
+
+    // নির্দিষ্ট সময় পর অ্যানিমেশন ক্লাস মুছে ফেলার জন্য (যদি চান অ্যানিমেশন রিপিট করতে)
+    setTimeout(function() {
+      $("#animatedText").removeClass('animate__animated animate__bounce');
+    }, 2000); // ১ সেকেন্ড পর ক্লাস মুছে যাবে (অ্যানিমেশনের সময়কালের সাথে মিলিয়ে দিন)
+  });
+});
+    
+    </script>
+    <script>
+ // jQuery সিলেক্টর ব্যবহার করে (ঐচ্ছিক)
+  gsap.to($(".box"), { duration: 1, x: 300, rotation: 360, ease: "bounce.out" });
+
+// অথবা সরাসরি DOM এলিমেন্ট বা ক্লাস দিয়ে
+gsap.to(".box", { duration: 1.5, x: 200, y: 50, opacity: 0.5, scale: 1.5, rotation: 180 });
+    </script>
+    
+</body>
+</html>

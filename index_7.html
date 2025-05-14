@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie-Edge">
+    <title></title>
+                <!--bootstrap css link-->
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.css">
+
+    
+                 <!--custom css link-->
+    <style>
+ /* Optional: Initial basic styling */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 3em;
+            text-align: center;
+        }
+
+
+        .animated-text span {
+    display: inline-block; /* স্প্যান ট্যাগ inline-block হতে হবে যাতে transform কাজ করে */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* অ্যানিমেশনের জন্য ট্রানজিশন যোগ করা */
+    position: relative; /* transform ব্যবহারের জন্য প্রয়োজন হতে পারে */
+}
+
+/* প্রতিটি অক্ষরের জন্য আলাদা রঙ */
+.animated-text .char1 { color: #ee0f0f; } /* লাল */
+.animated-text .char2 { color: #f0a00c; } /* কমলা */
+.animated-text .char3 { color: #f5f50b; } /* হলুদ */
+.animated-text .char4 { color: #046d04; } /* সবুজ */
+.animated-text .char5 { color: #0000FF; } /* নীল */
+.animated-text .char6 { color: #4B0082; } /* পার্পল */
+.animated-text .char7 { color: #EE82EE; } /* ভায়োলেট */
+
+.animated-text .char8 { color: #640606; } /* লাল */
+.animated-text .char9 { color: #382604; } /* কমলা */
+.animated-text .char10 { color: #FFFF00; } /* হলুদ */
+.animated-text .char11 { color: #008000; } /* সবুজ */
+.animated-text .char12 { color: #0000FF; } /* নীল */
+.animated-text .char13 { color: #4B0082; } /* পার্পল */
+.animated-text .char14 { color: #EE82EE; } /* ভায়োলেট */
+
+.animated-text .char15 { color: #FF0000; } /* লাল */
+.animated-text .char16 { color: #FFA500; } /* কমলা */
+.animated-text .char17 { color: #FFFF00; } /* হলুদ */
+.animated-text .char18 { color: #008000; } /* সবুজ */
+.animated-text .char19 { color: #0000FF; } /* নীল */
+.animated-text .char20 { color: #4B0082; } /* পার্পল */
+
+
+/* হোভার ইফেক্ট: অক্ষর উপরে উঠবে */
+.animated-text span:hover {
+    transform: translateY(-10px); /* Y অক্ষ বরাবর -10px উপরে সরাও */
+    color: #fcf8f8; /* হোভার করলে অক্ষরের রঙ পরিবর্তন করুন (ঐচ্ছিক) */
+}
+
+
+
+    </style>
+                
+
+</head>
+<body>
+
+    <h1 class="animated-text">Lettering Js Example</h1>
+
+
+                <!--jquery cdn link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                               <!--Lettering js cdn-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+                <!--bootstrap js link-->
+    <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
+                <!--custom js link-->
+    
+
+    <script>
+      $(document).ready(function() {
+    // Lettering.js দিয়ে h1 এলিমেন্টের প্রতিটি অক্ষরকে স্প্যান ট্যাগে মুড়ে দিচ্ছি
+    $(".animated-text").lettering();
+
+    // প্রতিটি অক্ষরের জন্য আলাদা স্টাইল বা অ্যানিমেশন যোগ করা (ঐচ্ছিক JavaScript অ্যানিমেশন)
+    // এখানে আমরা CSS ট্রানজিশন ব্যবহার করবো, তবে জাভাস্ক্রিপ্ট দিয়েও করা যায়
+    // যেমন: .animate() ব্যবহার করে
+     $(".animated-text span").each(function(index) {
+        $(this).delay(50 * index).animate({ top: -10 }, 200).animate({ top: 0 }, 200);
+     });
+})
+    </script>
+
+</body>
+</html>

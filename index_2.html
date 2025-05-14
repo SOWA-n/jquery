@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie-Edge">
+    <title></title>
+                <!--font awesome link-->
+    <link rel="stylesheet" href="assets/font_awesome/css/all.min.css">
+                <!--bootstrap css link-->
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.css">
+                <!--custom css link-->
+    
+    <link rel="stylesheet" href="css/style_1.css">
+                <!--media query link-->
+    <link rel="stylesheet" href="css/media.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label>তারিখ ও সময় নির্বাচন করো:</label>
+        <div class="input-group date" id="datetimepicker1">
+          <input type="text" class="form-control" />
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--jquery cdn link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Moment.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<!-- Bootstrap DateTimePicker CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+<!-- Bootstrap DateTimePicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+                <!--bootstrap js link-->
+    <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
+                <!--custom js link-->
+    <script>
+        $(document).ready(function(){
+   $('#datetimepicker1').datetimepicker({
+      format: 'DD/MM/YYYY HH:mm', // ডেট-টাইম ফরম্যাট
+      defaultDate: new Date(),    // ডিফল্ট ডেট (আজকের তারিখ)
+      sideBySide: true            // ডেট এবং টাইম পাশাপাশি দেখানোর জন্য
+    });
+})
+    </script>
+    <script>
+  $('#datetimepicker1').datetimepicker({
+    format: 'DD-MM-YYYY hh:mm A', // ফরম্যাট (AM/PM সহ)
+    minDate: new Date(),          // সর্বনিম্ন তারিখ (আজ থেকে)
+    daysOfWeekDisabled: [0, 6],   // রবিবার ও শনিবার নিষ্ক্রিয়
+    locale: 'bn'                  // বাংলা লোকেল (moment.js দিয়ে)
+  });
+</script>
+
+</body>
+</html>
